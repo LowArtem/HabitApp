@@ -4,6 +4,12 @@ namespace HabitAppServer.Data
 {
     public class DBContext : DbContext
     {
+        public DbSet<User> Users { get; set; }
+        public DbSet<Habit> Habits { get; set; }
+        public DbSet<Achievement> Achievements { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+
+
         public DBContext()
         {
             Database.EnsureCreated();
