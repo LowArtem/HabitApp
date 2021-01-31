@@ -40,5 +40,11 @@ namespace HabitAppServer.Data
 
         /// <summary>Сообщество, куда входит игрок</summary>
         public UserGroup UserGroups { get; set; }
+
+        /// <summary>Список всех сообщений пользователя</summary>
+        public ICollection<ChatMessage> ChatMessages { get; set; }
+
+        /// <summary>Список чатов пользователя</summary>
+        public ICollection<Chat> Chats { get; set; }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HabitAppServer.Data
 {
@@ -37,8 +35,8 @@ namespace HabitAppServer.Data
         /// <summary>Банк сообщества (деньги с пожертвований и вступительных взносов)</summary>
         public int Cash { get; set; }
 
-        //TODO: добавить чат
-
+        /// <summary>Чат сообщества</summary>
+        public Chat GroupChat { get; set; }
 
 
 
