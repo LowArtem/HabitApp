@@ -4,6 +4,8 @@ namespace HabitAppServer.Data
 {
     /// <summary>
     /// Класс достижений в базе данных
+    /// 
+    /// Эта таблица заполняется программистом только при определении конкретных достижений
     /// </summary>
     public class Achievement
     {
@@ -16,22 +18,13 @@ namespace HabitAppServer.Data
         /// <summary>Категория достижения</summary>
         public string Category { get; set; }
 
+        /// <summary>Денежная награда за достижение</summary>
+        public int CashReward { get; set; }
 
-
-        // TODO: необходимость этого свойства зависит от введения внутренней валюты
-
-
-
-        /// <summary>Награда за достижение</summary>
-        public int Reward { get; set; }
-
-
-
-
-
-
+        /// <summary>Предметная награда за достижение</summary>
+        public ICollection<Reward> Rewards { get; set; } = null;
 
         /// <summary>Список пользователей с этим достижением</summary>
-        public virtual ICollection<User> Users { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

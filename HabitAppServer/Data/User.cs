@@ -23,24 +23,19 @@ namespace HabitAppServer.Data
         /// <summary>Дата регистрации пользователя</summary>
         public DateTime RegistrationDate { get; set; }
 
-
-
-        // TODO: необходимость этого свойства зависит от введения внутренней валюты
-
-
-
         /// <summary>Денег на счету</summary>
         public int Cash { get; set; }
-
-
 
         /// <summary>Игровой опыт</summary>
         public int Experience { get; set; }
 
         /// <summary>Список всех его привычек</summary>
-        public virtual ICollection<Habit> Habits { get; set; }
+        public ICollection<Habit> Habits { get; set; }
 
         /// <summary>Список всех достижений пользователя</summary>
-        public virtual ICollection<Achievement> Achievements { get; set; }
+        public ICollection<Achievement> Achievements { get; set; }
+
+        /// <summary>Список неактивированных наград пользователя</summary>
+        public ICollection<Reward> Rewards { get; set; }
     }
 }
