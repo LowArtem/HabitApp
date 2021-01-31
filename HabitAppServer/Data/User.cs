@@ -37,5 +37,8 @@ namespace HabitAppServer.Data
 
         /// <summary>Список неактивированных наград пользователя</summary>
         public ICollection<Reward> Rewards { get; set; }
+
+        /// <summary>Сообщество, куда входит игрок</summary>
+        public UserGroup UserGroups { get; set; }
     }
 }

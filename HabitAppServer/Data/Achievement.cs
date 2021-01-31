@@ -26,5 +26,8 @@ namespace HabitAppServer.Data
 
         /// <summary>Список пользователей с этим достижением</summary>
         public ICollection<User> Users { get; set; }
+
+        /// <summary>Список сообществ с этим достижением</summary>
+        public ICollection<UserGroup> UserGroups { get; set; }
     }
 }

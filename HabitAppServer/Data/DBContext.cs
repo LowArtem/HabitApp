@@ -9,6 +9,7 @@ namespace HabitAppServer.Data
         public DbSet<Achievement> Achievements { get; set; }
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Reward> Rewards { get; set; }
+        public DbSet<UserGroup> UserGroups { get; set; }
 
 
         public DBContext()
