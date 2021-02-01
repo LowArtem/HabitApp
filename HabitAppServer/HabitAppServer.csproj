@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="BL\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
