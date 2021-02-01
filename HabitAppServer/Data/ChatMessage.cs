@@ -1,14 +1,15 @@
 ﻿using System;
+using HabitAppServer.Model;
 
 namespace HabitAppServer.Data
 {
     /// <summary>
     /// Класс сообщения в чате в базе данных
     /// </summary>
-    public class ChatMessage
+    public class ChatMessage : IEntity
     {
         /// <summary>Id</summary>
-        public int ChatMessageId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>Текст сообщения</summary>
         public string MessageText { get; set; }

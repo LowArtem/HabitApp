@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HabitAppServer.Model;
 
 namespace HabitAppServer.Data
 {
@@ -7,10 +8,10 @@ namespace HabitAppServer.Data
     /// 
     /// Эта таблица заполняется программистом только при определении конкретных достижений
     /// </summary>
-    public class Achievement
+    public class Achievement : IEntity
     {
         /// <summary>Id</summary>
-        public int AchievementId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>Описание достижения</summary>
         public string Description { get; set; }

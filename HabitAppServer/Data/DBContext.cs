@@ -14,7 +14,7 @@ namespace HabitAppServer.Data
 
 
 
-        public DBContext(DbContextOptions<DBContext> options) : base(options)
+        public DBContext()
         {
             Database.Migrate();
         }

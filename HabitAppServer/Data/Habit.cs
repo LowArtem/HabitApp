@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using HabitAppServer.Model;
 
 namespace HabitAppServer.Data
 {
     /// <summary>
     /// Класс привычки в базе данных (может быть позитивной/негативной)
     /// </summary>
-    public class Habit
+    public class Habit : IEntity
     {
         /// <summary>Id</summary>
-        public int HabitId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>Описание привычки</summary>
         public string Description { get; set; }

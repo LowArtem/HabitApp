@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using HabitAppServer.Model;
 
 namespace HabitAppServer.Data
 {
     /// <summary>
     /// Класс сообщества пользователей в базе данных
     /// </summary>
-    public class UserGroup
+    public class UserGroup : IEntity
     {
         /// <summary>Id</summary>
-        public int UserGroupId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>Название сообщества</summary>
         public string Name { get; set; }

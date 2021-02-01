@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using HabitAppServer.Model;
 
 namespace HabitAppServer.Data
 {
     /// <summary>
     /// Класс чата в базе данных
     /// </summary>
-    public class Chat
+    public class Chat : IEntity
     {
         /// <summary>Id</summary>
-        public int ChatId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>Название чата</summary>
         public string Name { get; set; }
