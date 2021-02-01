@@ -14,6 +14,9 @@ namespace HabitAppServer.Data
         /// <summary>Название сообщества</summary>
         public string Name { get; set; }
 
+        /// <summary>Аватар сообщества (картинка)</summary>
+        public byte[] Avatar { get; set; }
+
         /// <summary>Язык сообщества</summary>
         public string Language { get; set; }
 
@@ -27,7 +30,7 @@ namespace HabitAppServer.Data
         public DateTime CreationDate { get; set; }
 
         /// <summary>Список достижений сообщества</summary>
-        public ICollection<Achievement> Achievements { get; set; }
+        public virtual ICollection<Achievement> Achievements { get; set; }
 
         /// <summary>Суммарный опыт всех участников сообщества</summary>
         public int TotalExperience { get; set; }
@@ -36,19 +39,19 @@ namespace HabitAppServer.Data
         public int Cash { get; set; }
 
         /// <summary>Чат сообщества</summary>
-        public Chat GroupChat { get; set; }
+        public virtual Chat GroupChat { get; set; }
 
 
 
 
 
         /// <summary>Ссылка на создателя сообщества (может управлять админами)</summary>
-        public User Creator { get; set; }
+        public virtual User Creator { get; set; }
 
         /// <summary>Список администраторов сообщества (не могут управлять админами, могут юзерами, могут банком)</summary>
-        public ICollection<User> Administrators { get; set; }
+        public virtual ICollection<User> Administrators { get; set; }
 
         /// <summary>Список обычных пользователей сообщества</summary>
-        public ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

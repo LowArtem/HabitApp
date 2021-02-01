@@ -14,12 +14,12 @@ namespace HabitAppServer.Data
         public string Name { get; set; }
 
         /// <summary>Сообщения чата</summary>
-        public ICollection<ChatMessage> ChatMessages { get; set; }
+        public virtual ICollection<ChatMessage> ChatMessages { get; set; }
 
         /// <summary>Сообщество чата (null, если это личный чат)</summary>
-        public UserGroup UserGroup { get; set; }
+        public virtual UserGroup UserGroup { get; set; }
 
         /// <summary>Список участников чата</summary>
-        public ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

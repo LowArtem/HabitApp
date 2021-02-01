@@ -14,6 +14,9 @@ namespace HabitAppServer.Data
         /// <summary>Имя пользователя</summary>
         public string Username { get; set; }
 
+        /// <summary>Аватар пользователя (картинка)</summary>
+        public byte[] Avatar { get; set; }
+
         /// <summary>Адрес электронной почты</summary>
         public string Login { get; set; }
 
@@ -29,22 +32,28 @@ namespace HabitAppServer.Data
         /// <summary>Игровой опыт</summary>
         public int Experience { get; set; }
 
+        /// <summary>О себе от пользователя</summary>
+        public string Description { get; set; }
+
+        /// <summary>Последнее посещение</summary>
+        public DateTime LastVisit { get; set; }
+
         /// <summary>Список всех его привычек</summary>
-        public ICollection<Habit> Habits { get; set; }
+        public virtual ICollection<Habit> Habits { get; set; }
 
         /// <summary>Список всех достижений пользователя</summary>
-        public ICollection<Achievement> Achievements { get; set; }
+        public virtual ICollection<Achievement> Achievements { get; set; }
 
         /// <summary>Список неактивированных наград пользователя</summary>
-        public ICollection<Reward> Rewards { get; set; }
+        public virtual ICollection<Reward> Rewards { get; set; }
 
         /// <summary>Сообщество, куда входит игрок</summary>
-        public UserGroup UserGroups { get; set; }
+        public virtual UserGroup UserGroups { get; set; }
 
         /// <summary>Список всех сообщений пользователя</summary>
-        public ICollection<ChatMessage> ChatMessages { get; set; }
+        public virtual ICollection<ChatMessage> ChatMessages { get; set; }
 
         /// <summary>Список чатов пользователя</summary>
-        public ICollection<Chat> Chats { get; set; }
+        public virtual ICollection<Chat> Chats { get; set; }
     }
 }

@@ -13,9 +13,10 @@ namespace HabitAppServer.Data
         public DbSet<ChatMessage> ChatMessages { get; set; }
 
 
-        public DBContext()
+
+        public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

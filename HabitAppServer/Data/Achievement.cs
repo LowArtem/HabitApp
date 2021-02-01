@@ -15,6 +15,9 @@ namespace HabitAppServer.Data
         /// <summary>Описание достижения</summary>
         public string Description { get; set; }
 
+        /// <summary>Аватар достижения (картинка)</summary>
+        public byte[] Avatar { get; set; }
+
         /// <summary>Категория достижения</summary>
         public string Category { get; set; }
 
@@ -22,12 +25,12 @@ namespace HabitAppServer.Data
         public int CashReward { get; set; }
 
         /// <summary>Предметная награда за достижение</summary>
-        public ICollection<Reward> Rewards { get; set; } = null;
+        public virtual ICollection<Reward> Rewards { get; set; } = null;
 
         /// <summary>Список пользователей с этим достижением</summary>
-        public ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
 
         /// <summary>Список сообществ с этим достижением</summary>
-        public ICollection<UserGroup> UserGroups { get; set; }
+        public virtual ICollection<UserGroup> UserGroups { get; set; }
     }
 }

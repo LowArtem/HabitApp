@@ -20,9 +20,9 @@ namespace HabitAppServer.Data
         public bool IsPinned { get; set; } = false;
 
         /// <summary>Автор сообщения</summary>
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         /// <summary>Чат, которому принадлежит сообщение</summary>
-        public Chat Chat { get; set; }
+        public virtual Chat Chat { get; set; }
     }
 }

@@ -14,6 +14,9 @@ namespace HabitAppServer.Data
         /// <summary>Описание привычки</summary>
         public string Description { get; set; }
 
+        /// <summary>Аватар привычки (картинка)</summary>
+        public byte[] Avatar { get; set; }
+
         /// <summary>Категория привычки (спорт, учеба, здоровье...)</summary>
         public string Category { get; set; }
 
@@ -39,6 +42,6 @@ namespace HabitAppServer.Data
         public ICollection<DateTime> CompletionsDates { get; set; }
 
         /// <summary>Ссылка на пользователя, владельца этих привычек</summary>
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }
