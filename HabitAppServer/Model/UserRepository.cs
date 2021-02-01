@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using HabitAppServer.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace HabitAppServer.Model.Interfaces
+namespace HabitAppServer.Model
 {
     internal class UserRepository : DBRepository<User>
     {

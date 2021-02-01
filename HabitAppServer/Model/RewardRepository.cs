@@ -2,7 +2,7 @@
 using HabitAppServer.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace HabitAppServer.Model.Interfaces
+namespace HabitAppServer.Model
 {
     internal class RewardRepository : DBRepository<Reward>
     {
