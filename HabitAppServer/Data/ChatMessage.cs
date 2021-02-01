@@ -1,5 +1,5 @@
 ﻿using System;
-using HabitAppServer.Model;
+using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.Data
 {

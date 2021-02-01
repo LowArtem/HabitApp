@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HabitAppServer.Model;
+using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.Data
 {
