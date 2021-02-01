@@ -8,7 +8,7 @@ namespace HabitAppServer.Model.Interfaces
     /// Интерфейс для репозитория, управляющего моделями данных
     /// </summary>
     /// <typeparam name="T">класс модели данных</typeparam>
-    internal interface IRepository<T> where T : class, IEntity, new()
+    public interface IRepository<T> where T : class, IEntity, new()
     {
         IQueryable<T> Items { get; }
 
