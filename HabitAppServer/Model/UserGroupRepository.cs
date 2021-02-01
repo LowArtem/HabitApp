@@ -8,9 +8,7 @@ namespace HabitAppServer.Model
     {
         public UserGroupRepository(DBContext context) : base(context) { }
 
-        public override IQueryable<UserGroup> Items => base.Items.Include(item => item.Achievements)
-                                                                 .Include(item => item.Administrators)
-                                                                 .Include(item => item.Creator)
+        public override IQueryable<UserGroup> Items => base.Items.Include(item => item.Achievements)                                                                 
                                                                  .Include(item => item.Users)
                                                                  .Include(item => item.GroupChat);
     }

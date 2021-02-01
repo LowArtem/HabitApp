@@ -24,6 +24,9 @@ namespace HabitAppServer.Data
         /// <summary>Пароль</summary>
         public string Password { get; set; }
 
+        /// <summary>Статус игрока в сети (online/offline)</summary>
+        public string OnlineStatus { get; set; }
+
         /// <summary>Дата регистрации пользователя</summary>
         public DateTime RegistrationDate { get; set; }
 
@@ -48,8 +51,11 @@ namespace HabitAppServer.Data
         /// <summary>Список неактивированных наград пользователя</summary>
         public virtual ICollection<Reward> Rewards { get; set; }
 
-        /// <summary>Сообщество, куда входит игрок</summary>
+        /// <summary>Сообщество, в которое входит пользователь</summary>
         public virtual UserGroup UserGroups { get; set; }
+
+        /// <summary>Статус пользователя в сообществе (глава, админ, участник)</summary>
+        public string UserGroupStatus { get; set; }
 
         /// <summary>Список всех сообщений пользователя</summary>
         public virtual ICollection<ChatMessage> ChatMessages { get; set; }

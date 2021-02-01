@@ -42,17 +42,7 @@ namespace HabitAppServer.Data
         /// <summary>Чат сообщества</summary>
         public virtual Chat GroupChat { get; set; }
 
-
-
-
-
-        /// <summary>Ссылка на создателя сообщества (может управлять админами)</summary>
-        public virtual User Creator { get; set; }
-
-        /// <summary>Список администраторов сообщества (не могут управлять админами, могут юзерами, могут банком)</summary>
-        public virtual ICollection<User> Administrators { get; set; }
-
-        /// <summary>Список обычных пользователей сообщества</summary>
+        /// <summary>Список пользователей сообщества</summary>
         public virtual ICollection<User> Users { get; set; }
     }
 }

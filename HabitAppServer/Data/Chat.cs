@@ -17,6 +17,9 @@ namespace HabitAppServer.Data
         /// <summary>Сообщения чата</summary>
         public virtual ICollection<ChatMessage> ChatMessages { get; set; }
 
+        /// <summary>ID сообщества, к которому привязан чат</summary>
+        public int UserGroupId { get; set; }
+
         /// <summary>Сообщество чата (null, если это личный чат)</summary>
         public virtual UserGroup UserGroup { get; set; }
 

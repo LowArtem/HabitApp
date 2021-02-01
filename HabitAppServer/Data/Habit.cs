@@ -40,7 +40,7 @@ namespace HabitAppServer.Data
         public bool IsHabitArchived { get; set; } = false;
 
         /// <summary>Даты выполнения привычки</summary>
-        public ICollection<DateTime> CompletionsDates { get; set; }
+        public virtual ICollection<CustomDateTime> CompletionsDates { get; set; }
 
         /// <summary>Ссылка на пользователя, владельца этих привычек</summary>
         public virtual User User { get; set; }

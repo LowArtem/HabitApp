@@ -11,6 +11,7 @@ namespace HabitAppServer.Data
         public DbSet<Reward> Rewards { get; set; }
         public DbSet<UserGroup> UserGroups { get; set; }
         public DbSet<ChatMessage> ChatMessages { get; set; }
+        public DbSet<CustomDateTime> CustomDateTimes { get; set; }
 
 
 

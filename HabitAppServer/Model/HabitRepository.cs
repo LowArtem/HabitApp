@@ -8,6 +8,7 @@ namespace HabitAppServer.Model
     {
         public HabitRepository(DBContext context) : base(context) { }
 
-        public override IQueryable<Habit> Items => base.Items.Include(item => item.User);
+        public override IQueryable<Habit> Items => base.Items.Include(item => item.User)
+                                                             .Include(item => item.CompletionsDates);
     }
 }
