@@ -1,7 +1,9 @@
 ﻿using HabitAppServer.Data;
+using HabitAppServer.Model;
+using HabitAppServer.Model.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HabitAppServer.Model.Interfaces
+namespace HabitAppServer.Services
 {
     public static class RepositoryRegistrator
     {

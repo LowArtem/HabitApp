@@ -19,6 +19,11 @@ namespace HabitAppServer.Data
             Database.Migrate();
         }
 
+        public DBContext(DbContextOptions<DBContext> options) : base(options) 
+        {
+            Database.Migrate();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=HabitAppDB;Trusted_Connection=True;");
