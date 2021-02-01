@@ -6,13 +6,13 @@ namespace HabitAppServer.Model.Interfaces
     public static class RepositoryRegistrator
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services) => services
-            .AddTransient<IRepository<User>, DBRepository<User>>()
-            .AddTransient<IRepository<Habit>, DBRepository<Habit>>()
-            .AddTransient<IRepository<Achievement>, DBRepository<Achievement>>()
-            .AddTransient<IRepository<Chat>, DBRepository<Chat>>()
-            .AddTransient<IRepository<UserGroup>, DBRepository<UserGroup>>()
-            .AddTransient<IRepository<ChatMessage>, DBRepository<ChatMessage>>()
-            .AddTransient<IRepository<Reward>, DBRepository<Reward>>()
+            .AddTransient<IRepository<User>, UserRepository>()
+            .AddTransient<IRepository<Habit>, HabitRepository>()
+            .AddTransient<IRepository<Achievement>, AchievementRepository>()
+            .AddTransient<IRepository<Chat>, ChatRepository>()
+            .AddTransient<IRepository<UserGroup>, UserGroupRepository>()
+            .AddTransient<IRepository<ChatMessage>, ChatMessageRepository>()
+            .AddTransient<IRepository<Reward>, RewardRepository>()
             ;
     }
 }
