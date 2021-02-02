@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HabitAppServer.Data;
+using Microsoft.Extensions.Logging;
 
 namespace HabitAppServer.Services
 {
@@ -11,10 +12,12 @@ namespace HabitAppServer.Services
     /// </summary>
     public static class DBInitializer
     {
-        public static void Initialize(DBContext context)
+        public static void Initialize(DBContext context, ILogger logger)
         {
             if (!context.Users.Any())
             {
+                logger.LogInformation("New database has created");
+
                 context.Users.AddRange(
                     new User
                     {
@@ -74,6 +77,8 @@ namespace HabitAppServer.Services
                     );
                 context.SaveChanges();
             }
+            else
+                logger.LogInformation("Dont need to update database");
         }
     }
 }
