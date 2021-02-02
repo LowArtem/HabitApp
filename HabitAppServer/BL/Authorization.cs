@@ -16,26 +16,18 @@ namespace HabitAppServer.BL
 
         public int? Authorizate(string login, string password)
         {
-            User user;
-
-            // TODO: исправить возникающую здесь ошибку, из-за недоступности объекта в БД
-
-            try
-            {
-                user = _repository.Items.SingleOrDefault(u => u.Login == login && u.Password == password);                
-            }
-            catch
-            {
-                user = null;
-            }
+            var user = _repository.Items.SingleOrDefault(u => u.Login == login && u.Password == password);
 
             if (user is null) return null;
 
             return user.Id;
         }
 
-        public async Task<int> Registrate(User user)
+        public async Task<int?> RegistrateAsync(User user)
         {
+            if (_repository.Items.Any(u => u.Id == user.Id || u.Login == user.Login))
+                return null;
+
             var new_user = await _repository.AddAsync(user);
             return new_user.Id;
         }

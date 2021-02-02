@@ -14,9 +14,14 @@ namespace HabitAppServer.Data
         public DbSet<CustomDateTime> CustomDateTimes { get; set; }
 
 
-
         public DBContext()
         {
+            // Непонятным образом это работает в случае, если база данных отказывается создавать таблицы
+            //if (Database.CanConnect())
+            //    Database.CloseConnection();
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
+
             Database.Migrate();
         }
 
