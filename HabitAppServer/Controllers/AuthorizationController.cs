@@ -32,5 +32,17 @@ namespace HabitAppServer.Controllers
 
             return (int)id;
         }
+
+        [HttpPost("[action]")]
+        public async Task<ActionResult<int>> Registrate([FromBody] User user)
+        {
+            var authorizer = new BL.Authorization(_repository);
+
+            int? id = await authorizer.RegistrateAsync(user);
+
+            if (id is null) return new UnauthorizedResult();
+
+            return (int)id;
+        }
     }
 }
