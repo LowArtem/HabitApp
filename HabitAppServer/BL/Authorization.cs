@@ -5,7 +5,7 @@ using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.BL
 {
-    internal class Authorization
+    public class Authorization
     {
         private readonly IRepository<User> _repository;
 
