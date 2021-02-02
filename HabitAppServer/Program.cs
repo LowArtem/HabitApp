@@ -22,23 +22,23 @@ namespace HabitAppServer
             /// Код для первичной инициализации БД
 
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
 
-                var logger = services.GetRequiredService<ILogger<Program>>();
-                logger.LogInformation("Запущена первичная инициализация базы данных");
+            //    var logger = services.GetRequiredService<ILogger<Program>>();
+            //    logger.LogInformation("Запущена первичная инициализации базы данных");               
 
-                try
-                {
-                    var context = services.GetRequiredService<DBContext>();
-                    DBInitializer.Initialize(context, logger);
-                }
-                catch (Exception ex)
-                {
-                    logger.LogError(ex, "Ошибка в инициализации базы данных");
-                }
-            }
+            //    try
+            //    {
+            //        var context = services.GetRequiredService<DBContext>();
+            //        DBInitializer.Initialize(context);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        logger.LogError(ex, "Ошибка в инициализации базы данных");
+            //    }
+            //}
 
 
             host.Run();

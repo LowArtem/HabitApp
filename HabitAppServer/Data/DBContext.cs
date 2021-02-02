@@ -27,7 +27,7 @@ namespace HabitAppServer.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=HabitAppDB;AttachDbFilename=C:\Users\user\source\repos\HabitApp\HabitAppServer\LocalDatabase\HabitAppDB.mdf;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=HabitAppDB;Trusted_Connection=True;");
         }
     }
 }
