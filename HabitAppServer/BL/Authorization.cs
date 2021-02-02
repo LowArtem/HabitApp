@@ -16,7 +16,18 @@ namespace HabitAppServer.BL
 
         public int? Authorizate(string login, string password)
         {
-            var user = _repository.Items.SingleOrDefault(u => u.Login == login && u.Password == password);
+            User user;
+
+            // TODO: исправить возникающую здесь ошибку, из-за недоступности объекта в БД
+
+            try
+            {
+                user = _repository.Items.SingleOrDefault(u => u.Login == login && u.Password == password);                
+            }
+            catch
+            {
+                user = null;
+            }
 
             if (user is null) return null;
 

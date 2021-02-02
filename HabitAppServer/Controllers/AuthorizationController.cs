@@ -14,9 +14,9 @@ namespace HabitAppServer.Controllers
     {
         private readonly IRepository<User> _repository;
 
-        public AuthorizationController(IRepository<User> repository)
+        public AuthorizationController(IRepository<User> user_reposit)
         {
-            this._repository = repository;
+            this._repository = user_reposit;
         }
 
 
