@@ -151,5 +151,22 @@ namespace HabitAppServer.Model
             if (AutoSaveChanges)
                 await _context.SaveChangesAsync().ConfigureAwait(false);
         }
+
+        /// <summary>
+        /// Сохранить изменения (на случай, если изменений несколько их выгоднее сохранить все сразу)
+        /// </summary>
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Сохранить изменения асинхронно
+        /// </summary>
+        /// <returns></returns>
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

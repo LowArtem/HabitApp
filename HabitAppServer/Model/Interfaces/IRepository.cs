@@ -10,6 +10,8 @@ namespace HabitAppServer.Model.Interfaces
     /// <typeparam name="T">класс модели данных</typeparam>
     public interface IRepository<T> where T : class, IEntity, new()
     {
+        bool AutoSaveChanges { get; set; }
+
         IQueryable<T> Items { get; }
 
         T Get(int id);
@@ -23,5 +25,9 @@ namespace HabitAppServer.Model.Interfaces
 
         T Remove(int id);
         Task<T> RemoveAsync(int id, CancellationToken cancel = default);
+
+        void SaveChanges();
+
+        Task SaveChangesAsync();
     }
 }
