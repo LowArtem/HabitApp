@@ -25,11 +25,18 @@ namespace HabitAppServer.BL
 
         public async Task<int?> RegistrateAsync(User user)
         {
-            if (_repository.Items.Any(u => u.Id == user.Id || u.Login == user.Login))
+            if (_repository.Items.Any(u => user.Id != 0 || u.Login == user.Login || u.Username == user.Username))
                 return null;
 
             var new_user = await _repository.AddAsync(user);
             return new_user.Id;
+        }
+
+        public async Task<User> GetUserAsync(int id)
+        {
+            var user = await _repository.GetAsync(id);
+
+            return user;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace HabitAppServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLogging();
-            services.AddDbContext<DBContext>(opt => opt.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=HabitAppDB;Trusted_Connection=True;"));
+            services.AddDbContext<DBContext>(opt => opt.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=HabitAppDB;Trusted_Connection=True;"));
             services.AddControllers();
             services.AddRepositories();
         }

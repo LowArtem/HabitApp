@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace HabitAppServer.Data
 {
@@ -22,17 +23,20 @@ namespace HabitAppServer.Data
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
 
-            Database.Migrate();
+            Database.EnsureCreated();
         }
 
-        public DBContext(DbContextOptions<DBContext> options) : base(options) 
+        public DBContext(DbContextOptions<DBContext> options, ILogger<DBContext> logger) : base(options) 
         {
-            Database.Migrate();
+            //if (Database.CanConnect())
+            //    Database.CloseConnection();
+            //Database.EnsureDeleted();
+            Database.EnsureCreated();            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=HabitAppDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=HabitAppDB;Trusted_Connection=True;");
         }
     }
 }

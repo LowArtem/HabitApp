@@ -8,37 +8,44 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HabitAppServer.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AuthorizationController : ControllerBase
     {
-        private readonly IRepository<User> _repository;
+        private readonly BL.Authorization _authorizer;
 
         public AuthorizationController(IRepository<User> user_reposit)
         {
-            this._repository = user_reposit;
+            this._authorizer = new BL.Authorization(user_reposit);
         }
 
 
 
-        [HttpGet("[action]")]
+
+        [HttpGet]
         public ActionResult<int> Authorize(string login, string password)
         {
-            var authorizer = new BL.Authorization(_repository);
-
-            int? id = authorizer.Authorizate(login, password);
+            int? id = _authorizer.Authorizate(login, password);
 
             if (id is null) return new UnauthorizedResult();
 
             return (int)id;
         }
 
-        [HttpPost("[action]")]
+        [HttpGet]
+        public async Task<ActionResult<User>> GetUser(int id)
+        {
+            var user = await _authorizer.GetUserAsync(id);
+
+            if (user is null) return new UnauthorizedResult();
+
+            return user;
+        }
+
+        [HttpPost]
         public async Task<ActionResult<int>> Registrate([FromBody] User user)
         {
-            var authorizer = new BL.Authorization(_repository);
-
-            int? id = await authorizer.RegistrateAsync(user);
+            int? id = await _authorizer.RegistrateAsync(user);
 
             if (id is null) return new UnauthorizedResult();
 
