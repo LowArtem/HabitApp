@@ -31,7 +31,9 @@ namespace HabitAppServer.Data
             //if (Database.CanConnect())
             //    Database.CloseConnection();
             //Database.EnsureDeleted();
-            Database.Migrate();            
+            //Database.EnsureCreated();
+
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

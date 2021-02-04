@@ -70,11 +70,10 @@ namespace HabitAppServer.Data
         public virtual ICollection<Chat> Chats { get; set; }
 
         /// <summary>Список моих друзей</summary>
-        [InverseProperty("WhoseFriendIAm")]
-        public virtual ICollection<User> MyFriends { get; set; }
+        public virtual ICollection<User> Friends { get; set; }
 
         /// <summary>Список людей, у кого я в друзьях (не использовать это свойство, оно нужно для навигации)</summary>
-        [InverseProperty("MyFriends")]
-        public virtual ICollection<User> WhoseFriendIAm { get; set; }
+        [InverseProperty("Friends")]
+        public virtual ICollection<User> MirrorPropForFriends { get; set; }
     }
 }
