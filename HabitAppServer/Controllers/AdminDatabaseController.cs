@@ -13,7 +13,7 @@ namespace HabitAppServer.Controllers
     /// Контроллер для ручного добавления достижений и наград в БД (можно будет позже написать web-интерфейс для удобства, чтобы не лазить каждый раз в код)
     /// </summary>
     /// 
-    [Route("[admin]/[controller]/[action]")]
+    [Route("admin/[controller]/[action]")]
     [ApiController]
     public class AdminDatabaseController : ControllerBase
     {
