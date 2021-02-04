@@ -23,7 +23,7 @@ namespace HabitAppServer.Data
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
 
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         public DBContext(DbContextOptions<DBContext> options, ILogger<DBContext> logger) : base(options) 
@@ -31,7 +31,7 @@ namespace HabitAppServer.Data
             //if (Database.CanConnect())
             //    Database.CloseConnection();
             //Database.EnsureDeleted();
-            Database.EnsureCreated();            
+            Database.Migrate();            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
