@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.Data
@@ -12,9 +13,11 @@ namespace HabitAppServer.Data
         public int Id { get; set; }
 
         /// <summary>Текст сообщения</summary>
+        [Required]
         public string MessageText { get; set; }
 
         /// <summary>Дата и время сообщения</summary>
+        [Required]
         public DateTime Date { get; set; }
 
         /// <summary>Закреплено ли сообщение</summary>

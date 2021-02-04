@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.Data
@@ -13,12 +14,14 @@ namespace HabitAppServer.Data
         public int Id { get; set; }
 
         /// <summary>Название сообщества</summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>Аватар сообщества (картинка)</summary>
         public byte[] Avatar { get; set; }
 
         /// <summary>Язык сообщества</summary>
+        [Required]
         public string Language { get; set; }
 
         /// <summary>Описание сообщества</summary>
@@ -28,6 +31,7 @@ namespace HabitAppServer.Data
         public int EntranceFee { get; set; }
 
         /// <summary>Дата создания сообщества</summary>
+        [Required]
         public DateTime CreationDate { get; set; }
 
         /// <summary>Список достижений сообщества</summary>

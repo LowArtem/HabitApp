@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.Data
@@ -12,6 +13,7 @@ namespace HabitAppServer.Data
         public int Id { get; set; }
 
         /// <summary>DateTime</summary>
+        [Required]
         public DateTime DateTime { get; set; }
 
         public virtual ICollection<Habit> Habit { get; set; }

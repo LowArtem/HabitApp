@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.Data
@@ -14,12 +15,14 @@ namespace HabitAppServer.Data
         public int Id { get; set; }
 
         /// <summary>Описание достижения</summary>
+        [Required]
         public string Description { get; set; }
 
         /// <summary>Аватар достижения (картинка)</summary>
         public byte[] Avatar { get; set; }
 
         /// <summary>Категория достижения</summary>
+        [Required]
         public string Category { get; set; }
 
         /// <summary>Денежная награда за достижение</summary>

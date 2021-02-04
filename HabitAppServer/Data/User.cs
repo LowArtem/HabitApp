@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using HabitAppServer.Model.Interfaces;
 
 namespace HabitAppServer.Data
@@ -13,21 +14,25 @@ namespace HabitAppServer.Data
         public int Id { get; set; }
 
         /// <summary>Имя пользователя</summary>
+        [Required]
         public string Username { get; set; }
 
         /// <summary>Аватар пользователя (картинка)</summary>
         public byte[] Avatar { get; set; }
 
         /// <summary>Адрес электронной почты</summary>
+        [Required]
         public string Login { get; set; }
 
         /// <summary>Пароль</summary>
+        [Required]
         public string Password { get; set; }
 
         /// <summary>Статус игрока в сети (online/offline)</summary>
         public string OnlineStatus { get; set; }
 
         /// <summary>Дата регистрации пользователя</summary>
+        [Required]
         public DateTime RegistrationDate { get; set; }
 
         /// <summary>Денег на счету</summary>
