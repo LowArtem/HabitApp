@@ -22,7 +22,7 @@ namespace HabitAppServer.BL
 
 
 
-        public async Task<int?> CreateGroupChat(int groupCreatorId, int groupId, string name = "")
+        public async Task<int?> CreateGroupChat(int groupCreatorId, int groupId, string name = "", ICollection<int> usersIds = null)
         {
             var groupCreator = await _users.GetAsync(groupCreatorId);
             var group = await _groups.GetAsync(groupId);
@@ -37,6 +37,17 @@ namespace HabitAppServer.BL
             chat.Name = name;
             chat.UserGroup = group;
             chat.Users.Add(groupCreator);
+
+            // Adding creator's friends to group chat if creator invites them to group
+            if (usersIds != null && usersIds.Count > 0)
+                foreach (var uId in usersIds)
+                {
+                    var user = await _users.GetAsync(uId);
+
+                    if (user is null) return null;
+
+                    chat.Users.Add(user);
+                }
 
             var new_chat = await _chats.AddAsync(chat);
 

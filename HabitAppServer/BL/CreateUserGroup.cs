@@ -20,7 +20,7 @@ namespace HabitAppServer.BL
             this._chats = chats;
         }
 
-        // TODO: протестировать этот код
+
 
         public async Task<int?> Create(int groupCreatorId, string name, string language = "en", ICollection<int> friendsIds = null)
         {
@@ -34,16 +34,29 @@ namespace HabitAppServer.BL
             await _users.UpdateAsync(groupCreator);
 
             var group = new UserGroup();
+            var groupChat = new CreateChat(_chats, _users, _userGroup);
 
             group.Name = name;
             group.Language = language;
             group.CreationDate = DateTime.Now;
             group.Users.Add(groupCreator);
+
+            // Adding creator's friends to group if creator wants
+            if (friendsIds != null && friendsIds.Count > 0)
+                foreach (int uId in friendsIds)
+                {
+                    var user = await _users.GetAsync(uId);
+                    if (user is null) return null;
+
+                    user.UserGroupStatus = "user";
+                    await _users.UpdateAsync(user);
+
+                    group.Users.Add(user);
+                }
                         
             var new_group = await _userGroup.AddAsync(group);
 
-            var groupChat = new CreateChat(_chats, _users, _userGroup);
-            var chat_id = await groupChat.CreateGroupChat(groupCreatorId, new_group.Id);
+            var chat_id = await groupChat.CreateGroupChat(groupCreatorId, new_group.Id, usersIds: friendsIds);
 
             if (chat_id is null) return null;
 
