@@ -26,14 +26,23 @@ namespace HabitAppServer.Data
             Database.Migrate();
         }
 
-        public DBContext(DbContextOptions<DBContext> options, ILogger<DBContext> logger) : base(options) 
+        public DBContext(DbContextOptions<DBContext> options, ILogger<DBContext> logger) : base(options)
         {
             //if (Database.CanConnect())
             //    Database.CloseConnection();
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
 
-            Database.Migrate();
+
+
+            try
+            {
+                Database.Migrate();
+            }
+            catch (Microsoft.Data.SqlClient.SqlException)
+            {
+                Database.EnsureCreated();
+            }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
