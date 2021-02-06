@@ -22,7 +22,7 @@ namespace HabitAppServer.BL
 
 
 
-        public async Task<int?> Create(int groupCreatorId, string name, string language = "en", ICollection<int> friendsIds = null)
+        public async Task<int?> Create(int groupCreatorId, string name, string language = "en", ICollection<int> friendsIds = null, byte[] avatar = null)
         {
             if (string.IsNullOrEmpty(name)) return null;
 
@@ -53,6 +53,14 @@ namespace HabitAppServer.BL
 
                     group.Users.Add(user);
                 }
+
+            // Adding an avatar picture if creator wants
+            if (avatar != null && avatar.Count() > 0)
+                group.Avatar = avatar;
+            else
+            {
+                // TODO: реализовать добавление случайного аватара из списка
+            }
                         
             var new_group = await _userGroup.AddAsync(group);
 
