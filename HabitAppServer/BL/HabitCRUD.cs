@@ -22,7 +22,7 @@ namespace HabitAppServer.BL
         }
 
 
-        //TODO: протестировать, образуется ли связь с User. Можно ли через User достать этот habit?
+
         public async Task<int?> Create(int userId, Habit habit)
         {
             if (habit is null || string.IsNullOrEmpty(habit.Description) || string.IsNullOrEmpty(habit.Category) ||

@@ -31,6 +31,8 @@ namespace HabitAppServer
             services.AddDbContext<DBContext>(opt => opt.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=HabitAppDB;Trusted_Connection=True;"));
             services.AddControllers();
             services.AddRepositories();
+            services.AddControllersWithViews().AddNewtonsoftJson(options => 
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)

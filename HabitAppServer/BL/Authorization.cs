@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using HabitAppServer.Data;
 using HabitAppServer.Model.Interfaces;
@@ -28,6 +29,7 @@ namespace HabitAppServer.BL
             if (_repository.Items.Any(u => user.Id != 0 || u.Login == user.Login || u.Username == user.Username))
                 return null;
 
+            user.RegistrationDate = DateTime.Now;
             var new_user = await _repository.AddAsync(user);
             return new_user.Id;
         }
