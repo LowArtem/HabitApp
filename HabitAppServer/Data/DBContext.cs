@@ -35,14 +35,7 @@ namespace HabitAppServer.Data
 
 
 
-            try
-            {
-                Database.Migrate();
-            }
-            catch (Microsoft.Data.SqlClient.SqlException)
-            {
-                Database.EnsureCreated();
-            }
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

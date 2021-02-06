@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HabitAppServer.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20210204123256_InitialCreate")]
+    [Migration("20210206090819_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
