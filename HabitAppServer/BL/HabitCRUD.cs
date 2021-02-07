@@ -79,6 +79,14 @@ namespace HabitAppServer.BL
             return user.Habits.SingleOrDefault(h => h.Id == habitId);
         }
 
+        public async Task<ICollection<Habit>> GetAllHabits(int userId)
+        {
+            var user = await _users.GetAsync(userId);
+            if (user is null) return null;
+
+            return user.Habits;
+        }
+
         public async Task<Habit> Delete(int userId, int habitId)
         {
             var user = await _users.GetAsync(userId);
@@ -90,6 +98,20 @@ namespace HabitAppServer.BL
             await _habits.RemoveAsync(habitId);
 
             return habit;
+        }
+
+        public async Task<int?> Archieve(int userId, int habitId)
+        {
+            var user = await _users.GetAsync(userId);
+            if (user is null) return null;
+
+            var habit = user.Habits.SingleOrDefault(h => h.Id == habitId);
+            if (habit is null) return null;
+
+            habit.IsHabitArchived = true;
+            await _habits.UpdateAsync(habit);
+
+            return habitId;
         }
     }
 }

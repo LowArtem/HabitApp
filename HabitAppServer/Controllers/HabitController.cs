@@ -41,11 +41,31 @@ namespace HabitAppServer.Controllers
             return habit;
         }
 
+        [HttpGet("[action]")]        
+        public async Task<ActionResult<ICollection<Habit>>> GetAll(int userId)
+        {
+            var habits = await _habitController.GetAllHabits(userId);
+
+            if (habits is null) return new BadRequestResult();
+
+            return new OkObjectResult(habits);
+        }
+
         [HttpPut]
         public async Task<ActionResult> Update(int userId, int habitId, [FromBody] Habit habit)
         {
             int? new_habitId = await _habitController.Update(userId, habitId, habit.Description, habit.Type, habit.Category, habit.Avatar,
                 habit.CompletionsGoal);
+
+            if (new_habitId is null) return new BadRequestResult();
+
+            return new OkResult();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Archieve(int userId, int habitId)
+        {
+            var new_habitId = await _habitController.Archieve(userId, habitId);
 
             if (new_habitId is null) return new BadRequestResult();
 
