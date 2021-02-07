@@ -10,7 +10,7 @@ namespace HabitAppServer.Data
     public class Chat : IEntity
     {
         /// <summary>Id</summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>Название чата</summary>
         [Required]
@@ -20,7 +20,7 @@ namespace HabitAppServer.Data
         public virtual ICollection<ChatMessage> ChatMessages { get; set; }
 
         /// <summary>ID сообщества, к которому привязан чат</summary>
-        public int UserGroupId { get; set; }
+        public long UserGroupId { get; set; }
 
         /// <summary>Сообщество чата (null, если это личный чат)</summary>
         public virtual UserGroup UserGroup { get; set; }

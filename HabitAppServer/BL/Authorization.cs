@@ -15,7 +15,7 @@ namespace HabitAppServer.BL
             this._repository = repository;
         }
 
-        public int? Authorizate(string login, string password)
+        public long? Authorizate(string login, string password)
         {
             var user = _repository.Items.SingleOrDefault(u => u.Login == login && u.Password == password);
 
@@ -24,7 +24,7 @@ namespace HabitAppServer.BL
             return user.Id;
         }
 
-        public async Task<int?> RegistrateAsync(User user)
+        public async Task<long?> RegistrateAsync(User user)
         {
             if (_repository.Items.Any(u => user.Id != 0 || u.Login == user.Login || u.Username == user.Username))
                 return null;
@@ -34,7 +34,7 @@ namespace HabitAppServer.BL
             return new_user.Id;
         }
 
-        public async Task<User> GetUserAsync(int id)
+        public async Task<User> GetUserAsync(long id)
         {
             var user = await _repository.GetAsync(id);
 

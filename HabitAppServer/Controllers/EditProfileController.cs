@@ -33,7 +33,7 @@ namespace HabitAppServer.Controllers
 
 
         [HttpPut]
-        public async Task<ActionResult<User>> Edit([FromQuery] int id, [FromBody] User user)
+        public async Task<ActionResult<User>> Edit([FromQuery] long id, [FromBody] User user)
         {
             var new_user = await _editer.Edit(id, user.Description, user.Avatar, user.Username);
 
@@ -43,7 +43,7 @@ namespace HabitAppServer.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteUserAccount(int userId, string login, string password)
+        public async Task<ActionResult> DeleteUserAccount(long userId, string login, string password)
         {
             var id = await _editer.DeleteUserAccount(userId, login, password, achievementsRepo, rewardsRepo, usergroupsRepo, 
                 chatsRepo, chatmsgRepo);

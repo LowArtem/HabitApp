@@ -10,7 +10,7 @@ namespace HabitAppServer.Data
     public class ChatMessage : IEntity
     {
         /// <summary>Id</summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>Текст сообщения</summary>
         [Required]

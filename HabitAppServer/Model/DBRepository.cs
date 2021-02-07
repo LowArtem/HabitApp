@@ -71,7 +71,7 @@ namespace HabitAppServer.Model
         /// </summary>
         /// <param name="id"></param>
         /// <returns>полученный объект (или null)</returns>
-        public T Get(int id)
+        public T Get(long id)
         {
             return Items.SingleOrDefault(item => item.Id == id);
         }
@@ -82,7 +82,7 @@ namespace HabitAppServer.Model
         /// <param name="id"></param>
         /// <param name="cancel">токен отмены</param>
         /// <returns>полученный объект (или null)</returns>
-        public async Task<T> GetAsync(int id, CancellationToken cancel = default)
+        public async Task<T> GetAsync(long id, CancellationToken cancel = default)
         {
             return await Items.SingleOrDefaultAsync(item => item.Id == id, cancel).ConfigureAwait(false);
         }
@@ -92,7 +92,7 @@ namespace HabitAppServer.Model
         /// </summary>
         /// <param name="id"></param>
         /// <returns>удаленный объект</returns>
-        public T Remove(int id)
+        public T Remove(long id)
         {
             var item = Get(id);
             if (item is null) return null;
@@ -111,7 +111,7 @@ namespace HabitAppServer.Model
         /// <param name="id"></param>
         /// <param name="cancel">токен отмены</param>
         /// <returns>удаленный объект</returns>
-        public async Task<T> RemoveAsync(int id, CancellationToken cancel = default)
+        public async Task<T> RemoveAsync(long id, CancellationToken cancel = default)
         {
             var item = await GetAsync(id);
             if (item is null) return null;

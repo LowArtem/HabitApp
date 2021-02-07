@@ -14,8 +14,8 @@ namespace HabitAppServer.Model.Interfaces
 
         IQueryable<T> Items { get; }
 
-        T Get(int id);
-        Task<T> GetAsync(int id, CancellationToken cancel = default);
+        T Get(long id);
+        Task<T> GetAsync(long id, CancellationToken cancel = default);
 
         T Add(T item);
         Task<T> AddAsync(T item, CancellationToken cancel = default);
@@ -23,8 +23,8 @@ namespace HabitAppServer.Model.Interfaces
         void Update(T item);
         Task UpdateAsync(T item, CancellationToken cancel = default);
 
-        T Remove(int id);
-        Task<T> RemoveAsync(int id, CancellationToken cancel = default);
+        T Remove(long id);
+        Task<T> RemoveAsync(long id, CancellationToken cancel = default);
 
         void SaveChanges();
 

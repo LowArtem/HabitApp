@@ -11,7 +11,7 @@ namespace HabitAppServer.Migrations
                 name: "Achievements",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Avatar = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
@@ -27,7 +27,7 @@ namespace HabitAppServer.Migrations
                 name: "CustomDateTimes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -40,7 +40,7 @@ namespace HabitAppServer.Migrations
                 name: "Rewards",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -54,7 +54,7 @@ namespace HabitAppServer.Migrations
                 name: "UserGroups",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Avatar = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
@@ -74,8 +74,8 @@ namespace HabitAppServer.Migrations
                 name: "AchievementReward",
                 columns: table => new
                 {
-                    AchievementsId = table.Column<int>(type: "int", nullable: false),
-                    RewardsId = table.Column<int>(type: "int", nullable: false)
+                    AchievementsId = table.Column<long>(type: "bigint", nullable: false),
+                    RewardsId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,8 +98,8 @@ namespace HabitAppServer.Migrations
                 name: "AchievementUserGroup",
                 columns: table => new
                 {
-                    AchievementsId = table.Column<int>(type: "int", nullable: false),
-                    UserGroupsId = table.Column<int>(type: "int", nullable: false)
+                    AchievementsId = table.Column<long>(type: "bigint", nullable: false),
+                    UserGroupsId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -122,10 +122,10 @@ namespace HabitAppServer.Migrations
                 name: "Chats",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserGroupId = table.Column<int>(type: "int", nullable: false)
+                    UserGroupId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -142,7 +142,7 @@ namespace HabitAppServer.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Avatar = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
@@ -154,15 +154,15 @@ namespace HabitAppServer.Migrations
                     Experience = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastVisit = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserGroupsId = table.Column<int>(type: "int", nullable: true),
+                    UserGroupId = table.Column<long>(type: "bigint", nullable: true),
                     UserGroupStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_UserGroups_UserGroupsId",
-                        column: x => x.UserGroupsId,
+                        name: "FK_Users_UserGroups_UserGroupId",
+                        column: x => x.UserGroupId,
                         principalTable: "UserGroups",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -172,8 +172,8 @@ namespace HabitAppServer.Migrations
                 name: "AchievementUser",
                 columns: table => new
                 {
-                    AchievementsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    AchievementsId = table.Column<long>(type: "bigint", nullable: false),
+                    UsersId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -196,13 +196,13 @@ namespace HabitAppServer.Migrations
                 name: "ChatMessages",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MessageText = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsPinned = table.Column<bool>(type: "bit", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true),
-                    ChatId = table.Column<int>(type: "int", nullable: true)
+                    UserId = table.Column<long>(type: "bigint", nullable: true),
+                    ChatId = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -225,8 +225,8 @@ namespace HabitAppServer.Migrations
                 name: "ChatUser",
                 columns: table => new
                 {
-                    ChatsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    ChatsId = table.Column<long>(type: "bigint", nullable: false),
+                    UsersId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -249,7 +249,7 @@ namespace HabitAppServer.Migrations
                 name: "Habits",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Avatar = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
@@ -260,7 +260,7 @@ namespace HabitAppServer.Migrations
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsPositive = table.Column<bool>(type: "bit", nullable: false),
                     IsHabitArchived = table.Column<bool>(type: "bit", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true)
+                    UserId = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,8 +277,8 @@ namespace HabitAppServer.Migrations
                 name: "RewardUser",
                 columns: table => new
                 {
-                    RewardsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    RewardsId = table.Column<long>(type: "bigint", nullable: false),
+                    UsersId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -301,8 +301,8 @@ namespace HabitAppServer.Migrations
                 name: "UserUser",
                 columns: table => new
                 {
-                    FriendsId = table.Column<int>(type: "int", nullable: false),
-                    MirrorPropForFriendsId = table.Column<int>(type: "int", nullable: false)
+                    FriendsId = table.Column<long>(type: "bigint", nullable: false),
+                    MirrorPropForFriendsId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -325,8 +325,8 @@ namespace HabitAppServer.Migrations
                 name: "CustomDateTimeHabit",
                 columns: table => new
                 {
-                    CompletionsDatesId = table.Column<int>(type: "int", nullable: false),
-                    HabitId = table.Column<int>(type: "int", nullable: false)
+                    CompletionsDatesId = table.Column<long>(type: "bigint", nullable: false),
+                    HabitId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -397,9 +397,9 @@ namespace HabitAppServer.Migrations
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_UserGroupsId",
+                name: "IX_Users_UserGroupId",
                 table: "Users",
-                column: "UserGroupsId");
+                column: "UserGroupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserUser_MirrorPropForFriendsId",

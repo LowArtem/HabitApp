@@ -21,18 +21,19 @@ namespace HabitAppServer.Controllers
         }
 
 
+
         [HttpPost]
-        public async Task<ActionResult<int>> Create(int userId, [FromBody] Habit habit)
+        public async Task<ActionResult<long>> Create(long userId, [FromBody] Habit habit)
         {
-            int? habitId = await _habitController.Create(userId, habit);
+            long? habitId = await _habitController.Create(userId, habit);
 
             if (habitId is null) return new BadRequestObjectResult(habit);
 
-            return (int)habitId;
+            return (long)habitId;
         }
 
         [HttpGet]
-        public async Task<ActionResult<Habit>> Get(int userId, int habitId)
+        public async Task<ActionResult<Habit>> Get(long userId, long habitId)
         {
             var habit = await _habitController.GetHabit(userId, habitId);
 
@@ -42,7 +43,7 @@ namespace HabitAppServer.Controllers
         }
 
         [HttpGet("[action]")]        
-        public async Task<ActionResult<ICollection<Habit>>> GetAll(int userId)
+        public async Task<ActionResult<ICollection<Habit>>> GetAll(long userId)
         {
             var habits = await _habitController.GetAllHabits(userId);
 
@@ -52,9 +53,9 @@ namespace HabitAppServer.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update(int userId, int habitId, [FromBody] Habit habit)
+        public async Task<ActionResult> Update(long userId, long habitId, [FromBody] Habit habit)
         {
-            int? new_habitId = await _habitController.Update(userId, habitId, habit.Description, habit.Type, habit.Category, habit.Avatar,
+            long? new_habitId = await _habitController.Update(userId, habitId, habit.Description, habit.Type, habit.Category, habit.Avatar,
                 habit.CompletionsGoal);
 
             if (new_habitId is null) return new BadRequestResult();
@@ -62,8 +63,8 @@ namespace HabitAppServer.Controllers
             return new OkResult();
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Archieve(int userId, int habitId)
+        [HttpPut("[action]")]
+        public async Task<ActionResult> Archieve(long userId, long habitId)
         {
             var new_habitId = await _habitController.Archieve(userId, habitId);
 
@@ -73,7 +74,7 @@ namespace HabitAppServer.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<Habit>> Delete(int userId, int habitId)
+        public async Task<ActionResult<Habit>> Delete(long userId, long habitId)
         {
             var habit = await _habitController.Delete(userId, habitId);
 

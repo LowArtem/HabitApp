@@ -11,7 +11,7 @@ namespace HabitAppServer.Data
     public class UserGroup : IEntity
     {
         /// <summary>Id</summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>Название сообщества</summary>
         [Required]

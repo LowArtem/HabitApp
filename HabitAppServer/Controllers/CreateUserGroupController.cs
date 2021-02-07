@@ -22,9 +22,9 @@ namespace HabitAppServer.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<int>> CreateGroup(int groupCreatorId, string name, string language = "en", [FromBody] ICollection<int> friendsIds = null)
+        public async Task<ActionResult<long>> CreateGroup(long groupCreatorId, string name, string language = "en", [FromBody] ICollection<long> friendsIds = null)
         {
-            int? groupId = await createUserGroup.Create(groupCreatorId, name, language, friendsIds);
+            long? groupId = await createUserGroup.Create(groupCreatorId, name, language, friendsIds);
 
             if (groupId is null) return new BadRequestResult();
 

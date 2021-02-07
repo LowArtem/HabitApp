@@ -23,7 +23,7 @@ namespace HabitAppServer.BL
 
 
 
-        public async Task<int?> Create(int userId, Habit habit)
+        public async Task<long?> Create(long userId, Habit habit)
         {
             if (habit is null || string.IsNullOrEmpty(habit.Description) || string.IsNullOrEmpty(habit.Category) ||
                 string.IsNullOrEmpty(habit.Type))
@@ -42,7 +42,7 @@ namespace HabitAppServer.BL
             return new_habit.Id;
         }
 
-        public async Task<int?> Update(int userId, int habitId, string description = null, string type = null, string category = null,
+        public async Task<long?> Update(long userId, long habitId, string description = null, string type = null, string category = null,
                                        byte[] avatar = null, int? goal = -1)
         {
             var user = await _users.GetAsync(userId);
@@ -71,7 +71,7 @@ namespace HabitAppServer.BL
             return habit.Id;
         }
 
-        public async Task<Habit> GetHabit(int userId, int habitId)
+        public async Task<Habit> GetHabit(long userId, long habitId)
         {
             var user = await _users.GetAsync(userId);
             if (user is null) return null;
@@ -79,7 +79,7 @@ namespace HabitAppServer.BL
             return user.Habits.SingleOrDefault(h => h.Id == habitId);
         }
 
-        public async Task<ICollection<Habit>> GetAllHabits(int userId)
+        public async Task<ICollection<Habit>> GetAllHabits(long userId)
         {
             var user = await _users.GetAsync(userId);
             if (user is null) return null;
@@ -87,7 +87,7 @@ namespace HabitAppServer.BL
             return user.Habits;
         }
 
-        public async Task<Habit> Delete(int userId, int habitId)
+        public async Task<Habit> Delete(long userId, long habitId)
         {
             var user = await _users.GetAsync(userId);
             if (user is null) return null;
@@ -100,7 +100,7 @@ namespace HabitAppServer.BL
             return habit;
         }
 
-        public async Task<int?> Archieve(int userId, int habitId)
+        public async Task<long?> Archieve(long userId, long habitId)
         {
             var user = await _users.GetAsync(userId);
             if (user is null) return null;

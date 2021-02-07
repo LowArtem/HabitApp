@@ -22,7 +22,7 @@ namespace HabitAppServer.BL
 
 
 
-        public async Task<int?> Create(int groupCreatorId, string name, string language = "en", ICollection<int> friendsIds = null, byte[] avatar = null)
+        public async Task<long?> Create(long groupCreatorId, string name, string language = "en", ICollection<long> friendsIds = null, byte[] avatar = null)
         {
             if (string.IsNullOrEmpty(name)) return null;
 

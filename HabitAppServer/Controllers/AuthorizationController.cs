@@ -20,17 +20,17 @@ namespace HabitAppServer.Controllers
 
 
         [HttpGet]
-        public ActionResult<int> Authorize(string login, string password)
+        public ActionResult<long> Authorize(string login, string password)
         {
-            int? id = _authorizer.Authorizate(login, password);
+            long? id = _authorizer.Authorizate(login, password);
 
             if (id is null) return new UnauthorizedResult();
 
-            return (int)id;
+            return (long)id;
         }
 
         [HttpGet]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<User>> GetUser(long id)
         {
             var user = await _authorizer.GetUserAsync(id);
 
@@ -40,13 +40,13 @@ namespace HabitAppServer.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Registrate([FromBody] User user)
+        public async Task<ActionResult<long>> Registrate([FromBody] User user)
         {
-            int? id = await _authorizer.RegistrateAsync(user);
+            long? id = await _authorizer.RegistrateAsync(user);
 
             if (id is null) return new UnauthorizedResult();
 
-            return (int)id;
+            return (long)id;
         }
     }
 }

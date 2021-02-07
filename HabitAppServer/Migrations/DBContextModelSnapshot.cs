@@ -21,11 +21,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("AchievementReward", b =>
                 {
-                    b.Property<int>("AchievementsId")
-                        .HasColumnType("int");
+                    b.Property<long>("AchievementsId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("RewardsId")
-                        .HasColumnType("int");
+                    b.Property<long>("RewardsId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("AchievementsId", "RewardsId");
 
@@ -36,11 +36,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("AchievementUser", b =>
                 {
-                    b.Property<int>("AchievementsId")
-                        .HasColumnType("int");
+                    b.Property<long>("AchievementsId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
+                    b.Property<long>("UsersId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("AchievementsId", "UsersId");
 
@@ -51,11 +51,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("AchievementUserGroup", b =>
                 {
-                    b.Property<int>("AchievementsId")
-                        .HasColumnType("int");
+                    b.Property<long>("AchievementsId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("UserGroupsId")
-                        .HasColumnType("int");
+                    b.Property<long>("UserGroupsId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("AchievementsId", "UserGroupsId");
 
@@ -66,11 +66,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("ChatUser", b =>
                 {
-                    b.Property<int>("ChatsId")
-                        .HasColumnType("int");
+                    b.Property<long>("ChatsId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
+                    b.Property<long>("UsersId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("ChatsId", "UsersId");
 
@@ -81,11 +81,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("CustomDateTimeHabit", b =>
                 {
-                    b.Property<int>("CompletionsDatesId")
-                        .HasColumnType("int");
+                    b.Property<long>("CompletionsDatesId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("HabitId")
-                        .HasColumnType("int");
+                    b.Property<long>("HabitId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("CompletionsDatesId", "HabitId");
 
@@ -96,9 +96,9 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.Achievement", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
                     b.Property<byte[]>("Avatar")
@@ -122,17 +122,17 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.Chat", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserGroupId")
-                        .HasColumnType("int");
+                    b.Property<long>("UserGroupId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -144,13 +144,13 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.ChatMessage", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("ChatId")
-                        .HasColumnType("int");
+                    b.Property<long?>("ChatId")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -162,8 +162,8 @@ namespace HabitAppServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                    b.Property<long?>("UserId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -176,9 +176,9 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.CustomDateTime", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
                     b.Property<DateTime>("DateTime")
@@ -191,9 +191,9 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.Habit", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
                     b.Property<byte[]>("Avatar")
@@ -226,8 +226,8 @@ namespace HabitAppServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                    b.Property<long?>("UserId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -238,9 +238,9 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.Reward", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
                     b.Property<string>("Category")
@@ -258,9 +258,9 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
                     b.Property<byte[]>("Avatar")
@@ -292,11 +292,11 @@ namespace HabitAppServer.Migrations
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<long?>("UserGroupId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("UserGroupStatus")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UserGroupsId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -304,16 +304,16 @@ namespace HabitAppServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserGroupsId");
+                    b.HasIndex("UserGroupId");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("HabitAppServer.Data.UserGroup", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .UseIdentityColumn();
 
                     b.Property<byte[]>("Avatar")
@@ -349,11 +349,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("RewardUser", b =>
                 {
-                    b.Property<int>("RewardsId")
-                        .HasColumnType("int");
+                    b.Property<long>("RewardsId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
+                    b.Property<long>("UsersId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("RewardsId", "UsersId");
 
@@ -364,11 +364,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("UserUser", b =>
                 {
-                    b.Property<int>("FriendsId")
-                        .HasColumnType("int");
+                    b.Property<long>("FriendsId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("MirrorPropForFriendsId")
-                        .HasColumnType("int");
+                    b.Property<long>("MirrorPropForFriendsId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("FriendsId", "MirrorPropForFriendsId");
 
@@ -489,11 +489,11 @@ namespace HabitAppServer.Migrations
 
             modelBuilder.Entity("HabitAppServer.Data.User", b =>
                 {
-                    b.HasOne("HabitAppServer.Data.UserGroup", "UserGroups")
+                    b.HasOne("HabitAppServer.Data.UserGroup", "UserGroup")
                         .WithMany("Users")
-                        .HasForeignKey("UserGroupsId");
+                        .HasForeignKey("UserGroupId");
 
-                    b.Navigation("UserGroups");
+                    b.Navigation("UserGroup");
                 });
 
             modelBuilder.Entity("RewardUser", b =>

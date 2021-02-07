@@ -10,7 +10,7 @@ namespace HabitAppServer.Data
     /// </summary>
     public class CustomDateTime : IEntity
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>DateTime</summary>
         [Required]

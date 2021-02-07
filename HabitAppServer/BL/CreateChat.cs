@@ -22,7 +22,7 @@ namespace HabitAppServer.BL
 
 
 
-        public async Task<int?> CreateGroupChat(int groupCreatorId, int groupId, string name = "", ICollection<int> usersIds = null)
+        public async Task<long?> CreateGroupChat(long groupCreatorId, long groupId, string name = "", ICollection<long> usersIds = null)
         {
             var groupCreator = await _users.GetAsync(groupCreatorId);
             var group = await _groups.GetAsync(groupId);
@@ -54,7 +54,7 @@ namespace HabitAppServer.BL
             return new_chat.Id;
         }
 
-        public async Task<int?> CreatePrivateChat(int first_user_id, int second_user_id)
+        public async Task<long?> CreatePrivateChat(long first_user_id, long second_user_id)
         {
             var first_user = await _users.GetAsync(first_user_id);
             var second_user = await _users.GetAsync(second_user_id);

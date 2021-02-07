@@ -12,7 +12,7 @@ namespace HabitAppServer.Data
     public class Reward : IEntity
     {
         /// <summary>Id</summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>Описание предмета</summary>
         [Required]

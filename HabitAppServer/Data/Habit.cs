@@ -11,7 +11,7 @@ namespace HabitAppServer.Data
     public class Habit : IEntity
     {
         /// <summary>Id</summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>Описание привычки</summary>
         [Required]

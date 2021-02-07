@@ -16,7 +16,7 @@ namespace HabitAppServer.BL
             this._repository = repository;
         }
 
-        public async Task<User> Edit(int id, string description = null, byte[] avatar = null, string username = null)
+        public async Task<User> Edit(long id, string description = null, byte[] avatar = null, string username = null)
         {
             if (_repository.Get(id) == null) return null;
 
@@ -49,7 +49,7 @@ namespace HabitAppServer.BL
             return user;
         }
 
-        public async Task<int?> DeleteUserAccount(int userId, string login, string password, IRepository<Achievement> achievementsRepo,
+        public async Task<long?> DeleteUserAccount(long userId, string login, string password, IRepository<Achievement> achievementsRepo,
             IRepository<Reward> rewardsRepo, IRepository<UserGroup> usergroupsRepo, IRepository<Chat> chatsRepo, 
             IRepository<ChatMessage> chatmsgRepo)
         {
