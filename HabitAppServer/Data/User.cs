@@ -58,7 +58,7 @@ namespace HabitAppServer.Data
         public virtual ICollection<Reward> Rewards { get; set; }
 
         /// <summary>Сообщество, в которое входит пользователь</summary>
-        public virtual UserGroup UserGroups { get; set; }
+        public virtual UserGroup UserGroup { get; set; }
 
         /// <summary>Статус пользователя в сообществе (глава, админ, участник)</summary>
         public string UserGroupStatus { get; set; }

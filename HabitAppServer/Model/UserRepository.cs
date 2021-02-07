@@ -13,6 +13,6 @@ namespace HabitAppServer.Model
                                                             .Include(item => item.Habits)
                                                             .Include(item => item.ChatMessages)
                                                             .Include(item => item.Rewards)
-                                                            .Include(item => item.UserGroups);
+                                                            .Include(item => item.UserGroup);
     }
 }
