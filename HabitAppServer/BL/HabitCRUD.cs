@@ -26,7 +26,7 @@ namespace HabitAppServer.BL
         public async Task<long?> Create(long userId, Habit habit)
         {
             if (habit is null || string.IsNullOrEmpty(habit.Description) || string.IsNullOrEmpty(habit.Category) ||
-                string.IsNullOrEmpty(habit.Type))
+                string.IsNullOrEmpty(habit.Type) || !Services.HabitType.IsTypeCorrect(habit.Type))
             {
                 return null;
             }
@@ -54,7 +54,7 @@ namespace HabitAppServer.BL
             if (!string.IsNullOrEmpty(description))
                 habit.Description = description;
 
-            if (!string.IsNullOrEmpty(type))
+            if (!string.IsNullOrEmpty(type) && Services.HabitType.IsTypeCorrect(type))
                 habit.Type = type;
 
             if (!string.IsNullOrEmpty(category))
